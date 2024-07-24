@@ -41,7 +41,7 @@ let MyFunc = async(city) =>{
         if(data.cod.toString() === "200")
         {
             
-            console.log(data)
+            //console.log(data)
             document.getElementById("spnDatetime").innerText = moment().format('ddd, MM MMMM')+" "+moment().format('LT')+" (PK)"
             document.getElementById("txtsearch").value = ""
             document.getElementById("txtsearch").focus()
@@ -63,7 +63,7 @@ let MyFunc = async(city) =>{
             
             if(forcastData.cod.toString() === "200")
             {
-                console.log(forcastData)
+                //console.log(forcastData)
 
                 
                 document.getElementById("Desc-time-1").innerText = (parseInt(((forcastData.list[1].dt_txt.split(" "))[1].split(":")[0])) % 12 || 12)+" "+(parseInt(((forcastData.list[1].dt_txt.split(" "))[1].split(":")[0])) >= 12 ? 'pm' : 'am')
@@ -92,7 +92,7 @@ let MyFunc = async(city) =>{
             }
             else
             {
-                console.log("Forcast data not found")
+                alert("Forcast data not found")
             }
 
 
