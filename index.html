@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherApp</title>
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.36/moment-timezone-with-data.min.js"></script>
+    
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(220, 220, 220);
+            /* display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 90vh; */
+            
+        }
+        #main{
+            margin: 0 auto;
+            /* min-height: 80vh; */
+            width: 550px;
+            border-radius: 20px;
+            /* background-color: rgb(230, 230, 230); */
+            border: 1px solid rgb(230, 230, 230);
+            /* background: url(W-bg.jpg);
+            background-repeat: no-repeat;
+            background-size: cover; */
+            /* background-color: #ffffff; */
+            background: linear-gradient(150deg, #ffffff 10%, #335c81);
+            
+
+            
+        }
+        #Sdiv{
+            text-align: center;
+        }
+        #txtsearch{
+            width: 220px;
+            height: 30px;
+            border: none;
+            outline: none;
+            padding: 0 20px;
+            border-radius: 20px 0 0 20px;
+        }
+        #btnSearch{
+            height: 30px;
+            width: 50px;
+            border: none;
+            border-radius: 0 20px 20px 0;
+            background-color: greenyellow;
+        }
+        #Wdiv{
+            /* min-height: 400px; */
+            margin: 30px 20px;
+            background-color: white;
+            border-radius: 15px;
+            padding: 20px;
+        }
+        #spnLocation{
+            margin: auto 5px;
+            color: rgb(68, 68, 68);
+        }
+        .font-20{
+            font-size: 20px;
+        }
+        #spnDatetime{
+            color: #b9bec1;
+            display: block;
+            margin-top: 5px;
+            font-size: 14px;
+        }
+        #wDesDiv{
+            margin: 10px auto;
+            /* border: 1px solid black; */
+            display: flex;
+            align-items: center;
+        }
+        #spnTemp{
+            font-size: 55px;
+            font-weight: 100;
+            margin-right: 5px;
+        }
+        #spnWeatherIconimg img{
+            width: 70px;
+            height: 70px;
+        }
+        .Details{
+            display: flex;
+            flex-direction: column;
+            /* align-items: end; */
+            font-size: 14px;
+            color: #b9bec1;
+            width: 100%;
+        }
+        .flex-end{
+            align-items: end;
+        }
+        #W_Desc{
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        #Forcast-Desc{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #Forcast-div{
+            margin: 50px auto;
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+        }
+        .forcast-time{
+            color: #b9bec1;
+        }
+        .forcast-temp{
+            font-weight: bold;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="Sdiv">
+            <h1>Weather</h1>
+            <div style="display: flex; justify-content: center;">
+                <input type="text" id="txtsearch" placeholder="enter city name" >
+                <button id="btnSearch"><i class="fa fa-search"></i></button>
+            </div>
+        </div>
+        <div id="Wdiv">
+            <div>
+                <i class="fa fa-map-marker font-20" aria-hidden="true"></i><span id="spnLocation" class="font-20"></span>
+                <span id="spnDatetime">Sun, 21 July 8:45 pm</span>
+            </div>
+            <div id="wDesDiv">
+                <span id="spnWeatherIconimg"><img id="weatherImg" src=""></span>
+                <span id="spnTemp"></span>
+                <div id="Details1" class="Details">
+                    <span id="W_hum"></span>
+                    <span id="W_wind"></span>
+                    <span id="W_CloudCover"></span>
+                </div>
+                <div id="Details2" class="Details flex-end">
+                    <span id="W_Desc"></span>
+                    <span id="W_TempRange"></span>
+                    <span id="W_RealFeal"></span>
+                </div>
+            </div>
+            <div id="Forcast-div">
+                <div id="Forcast-Desc">
+                    <span id="Desc-time-1" class="forcast-time"></span>
+                    <span><img id="Desc-img-1" src=""></span>
+                    <span id="Desc-TempRange-1" class="forcast-temp"></span>
+                </div>
+                <div id="Forcast-Desc">
+                    <span id="Desc-time-2" class="forcast-time"></span>
+                    <span><img id="Desc-img-2" src=""></span>
+                    <span id="Desc-TempRange-2" class="forcast-temp"></span>
+                </div>
+                <div id="Forcast-Desc">
+                    <span id="Desc-time-3" class="forcast-time"></span>
+                    <span><img id="Desc-img-3" src=""></span>
+                    <span id="Desc-TempRange-3" class="forcast-temp"></span>
+                </div>
+                <div id="Forcast-Desc">
+                    <span id="Desc-time-4" class="forcast-time"></span>
+                    <span><img id="Desc-img-4" src=""></span>
+                    <span id="Desc-TempRange-4" class="forcast-temp"></span>
+                </div>
+                <div id="Forcast-Desc">
+                    <span id="Desc-time-5" class="forcast-time"></span>
+                    <span><img id="Desc-img-5" src=""></span>
+                    <span id="Desc-TempRange-5" class="forcast-temp"></span>
+                </div>
+    
+            </div>
+
+        </div>
+        
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
